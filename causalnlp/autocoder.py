@@ -98,12 +98,11 @@ class Autocoder:
         tm = TopicModel(docs, n_topics=k, n_features=n_features)
         tm.build(docs)
         e = tm.doc_topics
-        elen = e.shape[1]
+        topic_names = ['|'.join(t.split()[:3]) for t in tm.get_topics()]
         results = []
         for row, data in enumerate(e):
-            keys = ["topic_%04d" %(i) for i in range(data.shape[0])]
             vals = [v for v in data]
-            results.append( list(zip(keys, vals)) )
+            results.append( list(zip(topic_names, vals)) )
         df = self._format_to_df(results, df)
         return df  
     
@@ -127,7 +126,6 @@ class Autocoder:
         """
         te = TextEncoder(device=self.device, model_name=model_name)
         e = te.encode(docs, batch_size=batch_size, show_progress_bar=show_progress_bar)
-        elen = e.shape[1]
         results = []
         for row, data in enumerate(e):
             keys = ["e_%04d" %(i) for i in range(data.shape[0])]
