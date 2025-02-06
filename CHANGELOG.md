@@ -6,6 +6,31 @@ Most recent releases are shown at the top. Each release shows:
 - **Changed**: Additional parameters, changes to inputs or outputs, etc
 - **Fixed**: Bug fixes that don't change documented behaviour
 
+## 0.8.1 (2025-02-06)
+
+### New:
+- N/A
+
+### Changed
+- `Autocoder.code_lda_topics` now uses topic labels and column names
+  in output DataFrame (#3)
+
+### Fixed:
+- fixed dependency issues with scikit-learn and pandas
+
+
+## 0.8.0 (2024-06-15)
+
+### New:
+- N/A
+
+### Changed
+- migrated from `nbdev1` to `nbdev2`
+
+### Fixed:
+- fixed dependency issues with scikit-learn and pandas
+
+
 ## 0.7.0 (2022-08-02)
 
 ### New:
